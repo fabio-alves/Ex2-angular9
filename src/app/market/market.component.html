@@ -1,0 +1,26 @@
+<h2>Carteira</h2>
+<h4> Voce possui {{this.marketService.coin}}  Bitcoin(s)</h4>
+<hr />
+<h2>Compra e Venda</h2>
+<div>
+    <label for="">Insira o valor em dolar que quer comprar ou vender</label><br>
+    <input #money >
+    <button (click)='this.marketService.simulate(money.value)'>Simular</button>
+    <div>
+        <!--<label>Com este valor voce compra ou vende {{this.marketService.simulate(money.valeu)}}</label>-->
+    </div>
+    <!-- <button (click)="this.marketService.simulate(money.value)">simular</button><br> -->
+    
+</div>
+<div>
+    <button>Comprar</button>
+    <button>Vender</button>
+</div>
+<h2>Historico de Compra e venda</h2>
+<table class="table">
+    <tr>
+        <th scope="col">Transação</th>
+        <th scope="col">Bitcoin</th>
+        <th scope="col">Valor</th>
+    </tr>
+</table>

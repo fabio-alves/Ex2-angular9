@@ -1,0 +1,32 @@
+<div *ngIf="getCurrentPrice()">
+<h1>Disclaimer</h1>
+<div>{{this.getCurrentPrice().disclaimer}}</div>
+<h3>TIME</h3>
+<div>{{this.getCurrentPrice().time.updated}}</div> 
+<hr />
+<h2>Valores</h2>
+<h5><div>{{this.getCurrentPrice().bpi.USD.description}}</div></h5>
+<h4>&nbsp;{{this.bitcoinService.currentPrice.bpi.USD.rate_float}}</h4>
+<h5><div>{{this.bitcoinService.currentPrice.bpi.BRL.description}}</div></h5>
+<h4>&nbsp;{{this.bitcoinService.currentPrice.bpi.BRL.rate_float}}</h4>
+</div>
+<div>
+    <input type="button" value='Refresh' (click)='update()' />
+    <div>
+        <span>Atualizado em {{this.bitcoinService.lastUpdate | date:"full"}}</span>
+    </div>
+</div>
+<h2>Historico de Atualização</h2>
+<table class="table">
+    <tr>
+        <th scope="col">Timestamp</th>
+        <th scope="col">USD</th>
+        <th scope="col">BR</th>
+    </tr>
+    <tr *ngFor="let price of this.bitcoinService.updateList">
+        <td>{{price.timestamp | date:"full"}}</td>
+        <td>{{price.USD | currency}}</td>
+        <td>{{price.BRL | currency}}</td>
+
+    </tr>
+</table>
